@@ -1,0 +1,4 @@
+1. a&1 always gives 0, when a is even and 1 when a is odd.
+2. the right shift >> is equivalent to divising a number by 2.
+3. the left shift << is equivalent to multiplying a number by 2.
+4. a^b gives 0, only if both a and b are equal. 
