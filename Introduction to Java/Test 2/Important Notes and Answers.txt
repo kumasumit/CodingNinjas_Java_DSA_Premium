@@ -2,3 +2,5 @@
 2. the right shift >> is equivalent to divising a number by 2.
 3. the left shift << is equivalent to multiplying a number by 2.
 4. a^b gives 0, only if both a and b are equal. 
+5. 1^0=0^1=1, 1^1=0^0 = 0.
+6. 1&1=1, all other cases are zero.
