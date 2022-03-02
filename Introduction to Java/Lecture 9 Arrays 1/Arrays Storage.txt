@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt(); //gives the size the array.
+        int arr[] = new int[n]; //creates a new integer array of size n
+        System.out.println(arr); 
+        // returns [I@6bdf28bb
+        //[ means 1 dimensonal Array.
+        // I means Integer Array.
+        // after @ we hae actual address at which arr is pointing to. 
+      
+    }
+}
+
+// primitive Data types - int, char, float, long, double, short.
+// Non Primitive Data Types - Arrays, Strings, Scanner
+// String s = "abc" , suppose abc is stored at address 789 here s stores 789 not the value abc
+//int a = 7, since this is primitive data type, it actually stores 7 the value and not the address at which 7 is stored.
+
+//Primitive Data type store by value,
+//Non Primitive Data Types store by reference that is the address.

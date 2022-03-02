@@ -1,0 +1,98 @@
+1.
+char chArray[] = new char[15];
+System.out.println(chArray[15]);
+
+//output:
+#### For an array of size n, indexes of the array range from 0 to (n - 1).
+So here for array of size 15, valid indices are from 0 to 14. 
+This chArray[15] is trying to access an invalid index which gives ArrayIndexOutOfBoundsException.
+
+2. 
+boolean arr[] = new boolean[5];
+System.out.println(arr[0]);
+
+//output:
+####Whenever an boolean array is created, all elements are initialised to false.
+hence output in above case is false.
+
+3.
+public class Main {
+    public static void main(String args[]){
+      int arr[] = new int[5];
+      arr[1] = 10;
+      arr = new int[2];
+      System.out.println(arr[0]);   
+    }
+}
+//output:
+####arr initially refers to an array of size 5, line 2 assigns 10 to arr[1]
+but in line 3 arr is made to point to a new array of size 2.
+By default all elements of integer array are initialized to 0.
+Hence line 4 will print 0.
+
+4. public class Main {
+    public static void change(int input[]){
+    input[0] = 15;
+    }
+
+    public static void main(String args[]){
+        int arr[] = new int[5];
+        change(arr);
+        System.out.println(arr[0]);
+    }
+}
+//output
+####“arr” is a reference to the array, which contains address of the array.
+Hence we have passed this address to function “change”. Thus arr and input both refer to the same array. 
+Hence the statement input[0] = 15 changes the value of element at index 0 of the array to 15.
+
+5. public static void mul(int [] arr)
+{
+    for(int i=0;i<5;i++)
+    arr[i]*=i;
+
+}
+public static void main (String[] args) {
+    int arr[]={1,2,3,4,5};
+    mul(arr);
+    for(int i=0;i<5;i++)
+    {
+        System.out.print(arr[i]);
+    }
+}
+//output
+0261220
+
+6. public class Main {
+    public static void change(int input[]){
+    input = new int[5];
+    input[0] = 15;
+    }
+
+    public static void main(String args[]){
+        int arr[] = new int[5];
+        change(arr);
+        System.out.println(arr[0]);
+    }
+}
+//output
+####“arr” is a reference to the array, which contains address of the array. 
+Hence we have passed this address to function “change”. 
+So input and arr will refer to same array initially, 
+but in the first statement in function “change” input if made to refer to new integer array. So input[0] = 15, 
+will change the first element of this newly formed array and the array created in main will remain unchanged.
+
+7. public static int[] change(int input[]){
+input = new int[5];
+input[0] = 15;
+return input;
+}
+
+public static void main(String args[]){
+    int arr[] = new int[5];
+    arr=change(arr);
+    System.out.println(arr[0]);
+}
+//output 
+15 because the new input array is returned and passed to arr=change(arr), 
+now arr refers to new input array, so value = 15 
