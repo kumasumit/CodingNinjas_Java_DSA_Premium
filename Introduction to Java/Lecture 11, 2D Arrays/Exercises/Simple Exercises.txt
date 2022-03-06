@@ -1,0 +1,129 @@
+1. How can we declare a 2d array with 4 rows but the number of columns in each row are not set?
+ans: int arr[][] = new int[4][0];
+
+
+2. public static void main (String[] args) {
+    int arr[][]=new int [4][];
+    System.out.print(arr[2].length);
+}
+
+Ans: the output is Null Pointer Exception, because arr[0], arr[1], arr[2], arr[3] all are null and we are trying to get null.length which throws null pointer exception.
+
+
+3. public static void main (String[] args) {
+    int arr[][]={ {1,2,3,4} , {2,4} , {3,5,7,8,9,11} };
+    System.out.print(arr.length+arr[0].length+
+    arr[1].length+arr[2].length);
+}
+
+Ans : 3+4+2+6 = 15 ans 
+
+
+4. public static void  fun(int[][] arr2d)
+{
+
+    for(int i=0;i<arr2d.length;i++)
+    {
+        for(int j=0;j<arr2d[i].length;j++)
+        {
+            arr2d[i][j]=2*i+j;
+        }
+    }
+}
+public static void main(String[] args) 
+{ 
+    int[][] arr = new int[2][2]; 
+    fun(arr);
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<2;j++)
+        {
+            System.out.print(arr[i][j]+" " );
+        }
+    }
+} 
+
+Ans : 0 1 2 3
+
+5. public static int fun(int[][] arr2d)
+{
+    int sum=0;
+    for(int i=0;i<arr2d.length;i++)
+    {
+        for(int j=0;j<arr2d[i].length;j++)
+        {
+            sum+=arr2d[i][j];
+        }
+    }
+    return sum;
+}
+public static void main(String[] args) 
+{ 
+    int[][] arr = { {0,1,2,4,5}, {3,4,5,6,7},{5,6,7,8,9} }; 
+    System.out.println(fun(arr)); 
+} 
+
+ans : 72
+
+6. What should be the return type of a function that returns a 2-d array?
+ans : int [][]
+
+7. public static void main(String[] args) 
+{ 
+    int[][] arr = { {1,2,4,5,7},{3,4,5,6,7},{5,6,7,8,9} }; 
+    System.out.println(arr.length+arr[0].length); 
+} 
+
+ans : 3+5 = 8;
+
+8. Select the correct option to get number of rows in a 2-d array(arr)?
+ans: arr.length; to get no of cols in each row,arr[i].length will give lengt of ith Row.
+
+9. public static void main(String[] args) 
+{ 
+    int[][] arr = { { 1, 2 }, { 3, 4 } }; 
+    System.out.println(arr[0][0]+arr[1][1]); 
+} 
+ans : 5
+
+10. public static void main(String[] args) 
+{ 
+    int[][] arr = new int [2][2]; 
+    for (int i = 0; i < 2; i++) { 
+        for (int j = 0; j < 2; j++) { 
+            System.out.print(arr[i][j] + " "); 
+        } 
+    } 
+} 
+
+ans: 0 0 0 0
+
+11. public static void main (String[] args) {
+    int arr[][]=new int[4][5];
+    for(int i=0;i<4;i++)
+    {
+        for(int j=0;j<5;j++)
+        arr[i][j]=i*j;
+    }
+    System.out.print(arr[3][4]);
+}
+ans: 12
+
+12. public static void main (String[] args) {
+    int arr[][]=new int[4][5];
+    for(int i=0;i<5;i++)
+    {
+        arr[i][0]=2;
+    }
+    System.out.print(arr[3][0]);
+}
+ans: array index out of bounds error at arr[4] ,because maximum we can have is arr[3]
+
+13. How can we access the last element in last row in a 5*5 2-D array arr?
+int arr[][]=new int[5][5];
+Row number and element count starts from 0.
+ans: arr[4][4], or arr[rows-1][cols-1]
+
+14. How many elements are present in a two dimensional array arr[2][5]?
+ans: m*n, rows*cols, or i*j, or as in this case 2*5= 10 solved.
+
