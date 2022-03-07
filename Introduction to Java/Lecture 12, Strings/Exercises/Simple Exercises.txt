@@ -1,0 +1,2 @@
+1. What is the return type of charAt() function in String class?
+ans : char
