@@ -1,2 +1,85 @@
 1. What is the return type of charAt() function in String class?
 ans : char
+
+2. String a ="abcd";
+String b="abcda";
+System.out.println(a.compareTo(b));
+ans: -1
+explanation: The compareTo function returns the difference of length of strings when they are not equal.
+In case if the lengths are equal, then it returns the non-zero difference in ASCII 
+values starting from 0th index to (n-1)st index and if all the indices of string are same, it returns 0.
+here a-a = 0.
+b-c = 96-97 = -1 hence answer is -1
+
+3. public static void main (String[] args) {
+String a="coding",b="ninjas";
+if(a.contains("ing"))
+{
+    a+=b;
+}
+else
+{
+    b+="ing";
+}
+System.out.print(b+a);
+}
+ans: ninjascodingninjas
+
+4. String a="coding";
+for(int i=2;i<4;i++)
+{
+    System.out.print(a.substring(i));
+}
+ans: dinging.
+explanation: For i=2, the substring will be ding and for i=3 , it will be ing 
+
+5. String a="coding";
+for(int i=2;i<5;i++)
+{
+    System.out.print(a.substring(i-2,i+1));
+}
+ans: cododidin always exclude the end index in substring method.
+
+6. What will be the output of the following code if the input is "java is an object-oriented language":
+public static void main (String[] args) {
+Scanner s=new Scanner(System.in);
+String str1=s.next();
+String str2=s.nextLine();
+String str3=str2+str1;
+System.out.println(str3);
+}
+ans:  is an object-oriented languagejava. //next reads till it finds a new tab or space, nextLine reads till it finds a new line.
+
+7. public static void main (String[] args) {
+String str1="abc";
+String str2=new String("abc");
+System.out.println(str1==str2);
+}
+ans: false because it compares the address at which str1 and str2 are stored  and not the content of str1 and str2.
+
+8. public static void main (String[] args) {
+String str1="abc";
+String str2=new String("abc");
+System.out.println(str1.equals(str2));
+}
+ans: true, because here we are comparing content and not the address at which the contents are stored.
+
+9. public static void main (String[] args) {
+String str1="abc";
+String str2="";
+System.out.println(str1.contains(str2));
+}
+ans: true, because str1 contains empty space.
+
+10. Would the Stringbuffer store its string in string pool?
+ans: no. because StringBuffer gives you mutable String, so there is not optimization in form of String Pool.
+
+11. public static void main (String[] args) {
+StringBuffer str1=new StringBuffer("");
+for(int i=0;i<5;i++)
+{
+    str1.append((char)('a'+i));
+}
+System.out.println(str1);
+}
+ans: abcde 'a'+0= 97+0=97= a, 'a'+1= 98 = b and so on.  
