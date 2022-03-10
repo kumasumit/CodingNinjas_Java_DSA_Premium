@@ -1,0 +1,28 @@
+1. What are the number of operations for the following function?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=2;i<n;i+=2)
+        sum+=i;
+    System.out.println(sum);
+}
+ans: k1+k2(n)
+
+2. What are the number of operations for the following function?
+public static void func(int n)
+{
+    int sum=0;
+    for(int i=1;i<n*n;i++)
+        sum+=i;
+    System.out.println(sum);
+}
+ans: k1+k2(n^2)
+
+3. Which complexity of an algorithm quantifies the amount of memory taken by an algorithm.
+ans: Space Complexity.
+
+4. What is the time complexity for merging two sorted arrays?
+size of arrays are n and m.
+ans: O(n+m).
+
+5. Arrays are sorted in nlogn time complexity.
