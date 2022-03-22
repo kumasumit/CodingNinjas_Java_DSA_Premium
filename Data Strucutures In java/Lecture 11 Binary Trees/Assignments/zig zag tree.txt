@@ -1,0 +1,80 @@
+ZigZag tree
+Send Feedback
+Given a binary tree, print the zig zag order. In zigzag order, level 1 is printed from left to right, level 2 from right to left and so on. This means odd levels should get printed from left to right and even level right to left.
+Input format:
+The first line of input contains data of the nodes of the tree in level order form. The data of the nodes of the tree is separated by space. If any node does not have a left or right child, take -1 in its place. Since -1 is used as an indication whether the left or right nodes exist, therefore, it will not be a part of the data of any node.
+Output Format:
+The binary tree is printed level wise, as described in the task. Each level is printed in new line.
+Constraints
+Time Limit: 1 second
+Sample Input :
+5 6 10 2 3 -1 -1 -1 -1 -1 9 -1 -1
+Sample Output :
+5
+10 6
+2 3
+9
+
+//Solution:
+/*
+	
+	Following is the structure used to represent the Binary Tree Node
+
+	class BinaryTreeNode<T> {
+		T data;
+		BinaryTreeNode<T> left;
+		BinaryTreeNode<T> right;
+
+		public BinaryTreeNode(T data) {
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+
+ */
+
+import java.util.Stack;
+public class Solution {
+
+	public static void printZigZag(BinaryTreeNode<Integer> root){
+
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+        */
+        Stack<BinaryTreeNode<Integer>> stack1  = new Stack<>();
+		Stack<BinaryTreeNode<Integer>> stack2 = new Stack<>();
+		
+		stack1.push(root);
+		
+		while( !(stack1.isEmpty() && stack2.isEmpty()) ) {
+			while(!stack1.isEmpty()) {
+				BinaryTreeNode<Integer> frontNode = stack1.pop();
+				System.out.print(frontNode.data+" ");
+				if(frontNode.left!=null) {
+					stack2.push(frontNode.left);
+				}
+				if(frontNode.right!=null) {
+					stack2.push(frontNode.right);
+				}
+			}
+			System.out.println();
+			while(!stack2.isEmpty()) {
+				BinaryTreeNode<Integer> frontNode = stack2.pop();
+				System.out.print(frontNode.data+" ");
+				if(frontNode.right!=null) {
+					stack1.push(frontNode.right);
+				}
+				if(frontNode.left!=null) {
+					stack1.push(frontNode.left);
+				}
+			}
+			System.out.println();
+		}
+
+	}
+
+}
