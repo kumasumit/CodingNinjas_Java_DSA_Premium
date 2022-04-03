@@ -67,59 +67,60 @@ public class MaxPriorityQueue {
                 heap.set(parentIndex, temp);
                 childIndex = parentIndex; // now we move up the chain by making childIndex = parentIndex
             } else {
-                break; //we come out of while loop
+                break; // we come out of while loop
             }
         }
 
     }
+
     // Implement the removeMax() function here
     int removeMax() {
-        if(isEmpty()) {
-			return Integer.MIN_VALUE;
-		}
-         //Remove the Max element and store it
-        int maxElement=heap.get(0); //maxElement is the head in a Max Queue
-        //Set the last element to the root/head of the queue
-        heap.set(0, heap.get(heap.size()-1)); //set is inbuilt method of ArrayList
-		//remove the last element from the queue/arraylist
-        heap.remove(heap.size()-1); //here remove is the remove method of the arraylist as defined by Java
-        //Start reinstating max. heap property from root to leaf
+        if (isEmpty()) {
+            return Integer.MIN_VALUE;
+        }
+        // Remove the Max element and store it
+        int maxElement = heap.get(0); // maxElement is the head in a Max Queue
+        // Set the last element to the root/head of the queue
+        heap.set(0, heap.get(heap.size() - 1)); // set is inbuilt method of ArrayList
+        // remove the last element from the queue/arraylist
+        heap.remove(heap.size() - 1); // here remove is the remove method of the arraylist as defined by Java
+        // Start reinstating max. heap property from root to leaf
         downHeapify();
-        return maxElement; //return the head/maxElement in case of Priority Queue
-	}
+        return maxElement; // return the head/maxElement in case of Priority Queue
+    }
 
-    private void downHeapify() 
-    {
-    //Start reinstating max. heap property from root to leaf
-    int parentIndex = 0;
-    int leftChildIndex = 2*parentIndex+1;
-    int rightChildIndex = 2*parentIndex+2;
-    int maxIndex = 0;
-    //the array ends when the left child is last or 2nd last, so we run the loop till it is less than size, if it is last leftChild<heap.size()
-    while(leftChildIndex<heap.size()){
-        //if left child is greater than parent , make maxIndex = leftChild
-        if(heap.get(leftChildIndex)>heap.get(maxIndex)){
-            maxIndex=leftChildIndex;
-        }
-        //if right child is greater than parent , make maxIndex = rightChild
-        if(rightChildIndex < heap.size() && heap.get(rightChildIndex)>heap.get(maxIndex)){
-            maxIndex=rightChildIndex; //here we check rightChildIndex < heap.size(), so that it is not out of bounds of the array
-        }
-        //now if the maxIndex is changed
-        if(maxIndex!=parentIndex){
-            //here we swap and pass maximum value to the parent
-            int temp = heap.get(maxIndex);
-            heap.set(maxIndex, heap.get(parentIndex));
-            heap.set(parentIndex, temp);
-            parentIndex = maxIndex; //now we go further down to check if heap max property is true for all nodes
-            leftChildIndex = 2*parentIndex + 1;
-			rightChildIndex = 2* parentIndex + 2;
-        }
-        else{ //if maxIndex is not changed, parent is the maximum element then come out of the loop
-            break;
-        }
-    }//while loop closes
-    }//downHeapify closes
-    
+    private void downHeapify() {
+        // Start reinstating max. heap property from root to leaf
+        int parentIndex = 0;
+        int leftChildIndex = 2 * parentIndex + 1;
+        int rightChildIndex = 2 * parentIndex + 2;
+        int maxIndex = 0;
+        // the array ends when the left child is last or 2nd last, so we run the loop
+        // till it is less than size, if it is last leftChild<heap.size()
+        while (leftChildIndex < heap.size()) {
+            // if left child is greater than parent , make maxIndex = leftChild
+            if (heap.get(leftChildIndex) > heap.get(maxIndex)) {
+                maxIndex = leftChildIndex;
+            }
+            // if right child is greater than parent , make maxIndex = rightChild
+            if (rightChildIndex < heap.size() && heap.get(rightChildIndex) > heap.get(maxIndex)) {
+                maxIndex = rightChildIndex; // here we check rightChildIndex < heap.size(), so that it is not out of
+                                            // bounds of the array
+            }
+            // now if the maxIndex is changed
+            if (maxIndex != parentIndex) {
+                // here we swap and pass maximum value to the parent
+                int temp = heap.get(maxIndex);
+                heap.set(maxIndex, heap.get(parentIndex));
+                heap.set(parentIndex, temp);
+                parentIndex = maxIndex; // now we go further down to check if heap max property is true for all nodes
+                leftChildIndex = 2 * parentIndex + 1;
+                rightChildIndex = 2 * parentIndex + 2;
+            } else { // if maxIndex is not changed, parent is the maximum element then come out of
+                     // the loop
+                break;
+            }
+        } // while loop closes
+    }// downHeapify closes
 
 }
