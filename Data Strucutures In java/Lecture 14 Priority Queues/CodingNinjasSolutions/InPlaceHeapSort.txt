@@ -1,25 +1,50 @@
-//here in place Heap sort will chnage space complexity from O(n) to 0(1).
-public class InPlaceHeapSort {
-    // coding ninjas solution
-    public static void inplaceHeapSort(int input[]) {
-       for(int i=0;i<input.length;i++){
+/*
+Code : In-place heap sort
+Send Feedback
+Given an integer array of size N. Sort this array (in decreasing order) using heap sort.
+Note: Space complexity should be O(1).
+Input Format:
+The first line of input contains an integer, that denotes the value of the size of the array or N.
+The following line contains N space separated integers, that denote the value of the elements of the array.
+Output Format :
+The first and only line of output contains array elements after sorting. The elements of the array in the output are separated by single space.
+Constraints :
+1 <= n <= 10^6
+Time Limit: 1 sec
+Sample Input 1:
+6 
+2 6 8 5 4 3
+Sample Output 1:
+8 6 5 4 3 2
+*/
+public class Solution {
+
+	public static void inplaceHeapSort(int input[]) {
+		/* Your class should be named Solution
+		* Don't write main().
+		* Don't read input, it is passed as function argument.
+		* Change in the given input itself.
+		* Taking input and printing output is handled automatically.
+		*/
+        for(int i=0;i<input.length;i++){
            insertIntoVirtualHeap(input, i); //here we pass the array and the index
        }
-       for(int i: input) {
-    	   System.out.print(i+ " "); //this will print the array in the form of a heap 0 1 2 6 5 9
-       }
-       System.out.println();
+//       for(int i: input) {
+//    	   System.out.print(i+ " "); //this will print the array in the form of a heap 2 4 3 6 5 8 
+////       }
+//       System.out.println();
        //now we remove all elements from the heap
        for(int i=0;i<input.length;i++) {
     	   input[input.length-1-i]=removeMinFromVirtaulHeap(input, input.length-i); //input.length-i is the size of heap, every time the heap size will decrease when we remove an element from the Heap
     	   //here when we remove the first minElemnt we place at it arr.legth-1 position when i=0, for 2nd minElement we place it at arr.length -1-1 , arr.length-i, hence the formula
     	   
          }
-    }
 
-    private static int removeMinFromVirtaulHeap(int[] input, int heapSize) {
+		
+	}
+       private static int removeMinFromVirtaulHeap(int[] input, int heapSize) {
 	  int minElement = input[0]; //in heap the minElemnt will always be at the head/root
-	  System.out.println(minElement);
+//	  System.out.println(minElement);
 	  input[0]=input[heapSize-1]; //place the last element from the array to the top/root/head
 	  //remove the last element
 	  heapSize--;
@@ -70,14 +95,4 @@ public class InPlaceHeapSort {
     		}
     	}
     }
-
-    // Driver Code to check the solution
-    public static void main(String[] args) {
-        int[] input = { 2,6,8,5,4,3};
-        inplaceHeapSort(input);
-        for (int i : input) {
-            System.out.print(i + " ");
-        }
-    }
-
-}
+}   
