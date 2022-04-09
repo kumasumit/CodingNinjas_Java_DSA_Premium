@@ -1,0 +1,57 @@
+Ways To Make Coin Change
+Send Feedback
+For the given infinite supply of coins of each of denominations, D = {D0, D1, D2, D3, ...... Dn-1}. You need to figure out the total number of ways W, in which you can make the change for Value V using coins of denominations D.
+Return 0 if the change isn't possible.
+Input Format
+The first line of the input contains an integer value N, which denotes the total number of denominations.
+
+The second line of input contains N values, separated by a single space. These values denote the value of denomination.
+
+The third line of the input contains an integer value, that denotes the value of V.
+Output Format
+Print the total total number of ways i.e. W.
+Constraints :
+1 <= n <= 10
+1 <= V <= 1000
+
+Time Limit: 1sec
+Sample Input 1 :
+3
+1 2 3
+4
+Sample Output 1 :
+4
+Explanation to Sample Input 1 :
+Number of ways are - 4 total i.e. (1,1,1,1), (1,1, 2), (1, 3) and (2, 2).
+Sample Input 2 :
+6
+1 2 3 4 5 6
+250
+Sample Output 2 :
+13868903
+//DP Solution
+
+public class Solution {
+
+	
+	public static int countWaysToMakeChange(int denominations[], int value){
+        // Write your code here
+         // table[i] will be storing the number of solutions for
+    // value i. We need n+1 rows as the table is constructed
+    // in bottom up manner using the base case (n = 0)
+    int table[]=new int[value+1];
+ 
+    // Base case (If given value is 0)
+    table[0] = 1;
+ 
+    // Pick all coins one by one and update the table[] values
+    // after the index greater than or equal to the value of the
+    // picked coin
+    for(int i=0; i<denominations.length; i++)
+        for(int j=denominations[i]; j<=value; j++)
+            table[j] += table[j-denominations[i]];
+ 
+    return table[value];
+	}
+	
+}
