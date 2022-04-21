@@ -1,0 +1,58 @@
+Islands
+Send Feedback
+An island is a small piece of land surrounded by water . A group of islands is said to be connected if we can reach from any given island to any other island in the same group . Given V islands (numbered from 1 to V) and E connections or edges between islands. Can you count the number of connected groups of islands.
+Input Format :
+The first line of input contains two integers, that denote the value of V and E.
+Each of the following E lines contains two integers, that denote that there exists an edge between vertex a and b. 
+Output Format :
+Print the count the number of connected groups of islands
+Constraints :
+0 <= V <= 1000
+0 <= E <= (V * (V-1)) / 2
+0 <= a <= V - 1
+0 <= b <= V - 1
+Time Limit: 1 second
+Sample Input 1:
+5 8
+0 1
+0 4
+1 2
+2 0
+2 4
+3 0
+3 2
+4 3
+Sample Output 1:
+1 
+
+Solution://///////
+public class Solution {
+    
+      public static void helpDFS(int edges[][],boolean visited[],int start, int n){  
+       //mark visited as true   
+        visited[start]=true; 
+        //go through all the adjacent vertices of start vertex which have value 1 in the adjacency matrix  
+          for(int j=0;j<n;j++){
+              if(edges[start][j]==1&&!visited[j]){
+                 help(edges,visited,j,n); 
+              }
+          }
+    }
+
+	public static int numConnected(int[][] edges, int n) {
+        
+		boolean[] visited = new boolean[n];
+        int count = 0;
+		for(int i=0;i<n;i++){
+          //if the vertex is not visted call dfs on the vertex  
+          if(!visited[i]){
+             //after 1st call mark count = count+1; 
+             count++;
+             helpDFS(edges,visited,i,n);
+            
+          }
+        }
+        return count; //this returns the final number of times helpDFS was called, that is number of coonected components/islands
+        
+    }
+}
