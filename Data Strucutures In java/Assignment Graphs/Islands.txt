@@ -34,7 +34,7 @@ public class Solution {
         //go through all the adjacent vertices of start vertex which have value 1 in the adjacency matrix  
           for(int j=0;j<n;j++){
               if(edges[start][j]==1&&!visited[j]){
-                 help(edges,visited,j,n); 
+                 helpDFS(edges,visited,j,n); 
               }
           }
     }
